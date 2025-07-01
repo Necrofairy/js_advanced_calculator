@@ -14,6 +14,10 @@ function makeCalculator() {
     },
 
     operate(operation, arg) {
+      if (typeof operation !== 'function') {
+        throw new Error("This isn't function!");
+      }
+
       operation.call(this, arg);
 
       return this;
